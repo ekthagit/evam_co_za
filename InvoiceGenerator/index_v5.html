@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Invoice Generator Pro</title>
+  <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
+    <!-- <script src="libs/paged.polyfill.js"></script> -->
+    <script src="constants.js"></script>
+
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="card">
+            <h2>Invoice Generator Pro</h2>
+
+            <div class="flex">
+
+                <!-- BILL TO -->
+
+                <div class="col">
+
+                    <h3>Bill To</h3>
+ 
+                    <input id="billName" placeholder="Customer / Company Name" value="MyCustomer / Company Name">
+                    <input id="billVAT" placeholder="VAT Number (Optional)" value="My VAT Number (Optional)">
+                    <textarea id="billAddress" placeholder="Billing Address"> 123 Main Street, Hyderabad, Telangana, India - 500001</textarea>
+                    <input id="billPhone" placeholder="Phone Number" value="My Phone number">
+                </div>
+
+                <!-- SHIP TO -->
+
+                <div class="col">
+
+                    <h3>Ship To</h3>
+
+                    <input id="shipName" placeholder="Company Name" value="My Shipping Company Name">
+                    <textarea id="shipAddress" placeholder="Shipping Address">123 Main Street, Hyderabad, Telangana, India - 500001</textarea>
+                    <input id="shipPhone" placeholder="Phone Number" value="My Shipping Phone">
+
+                </div>
+
+            </div>
+
+            <br>
+
+            <div class="flex">
+
+                <!-- INVOICE DETAILS -->
+
+                <div class="col">
+
+                    <h3>Invoice Details</h3>
+
+                    <input id="invoiceNo">
+
+                    <label>Invoice Date</label>
+                    <input id="invoiceDate"
+                    type="date">
+
+                    <label>Due Date</label>
+                    <input id="dueDate"
+                    type="date">
+
+                </div>
+
+                <!-- PAYMENT INFO -->
+
+                <div class="col">
+
+                    <h3>Payment Information</h3>
+
+                    <select id="bankAccount">
+
+                        <option value="bank1">
+                            Mashreq Bank
+                        </option>
+
+                        <option value="bank2">
+                            Emirates NBD
+                        </option>
+
+                    </select>
+
+                    <label>Currency</label>
+
+                    <select id="currency">
+
+                        <option value="AED">
+                            AED
+                        </option>
+
+                        <option value="USD">
+                            USD
+                        </option>
+
+                        <option value="INR">
+                            INR
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="card">
+                <h3>Products</h3>
+                <div class="table-wrapper">
+                    <table class="form-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th><th>Qty</th><th>Rate</th><th>VAT %</th><th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="rows"></tbody>
+                    </table>
+                </div>
+                <br>
+                <button class="primary" onclick="addRow()">Add Product</button>
+            </div>
+
+            <div class="form-group">
+                <label><strong>Terms & Conditions</strong></label>
+
+                <div id="termsEditor" contenteditable="true" style=" min-height:150px; border:1px solid #ccc; padding:10px; border-radius:4px; background:#fff; ">
+                <ol>
+                    <li>Consultancy services included in this invoice are charged and payable in full.</li>
+                    <li>Product values reflected in this invoice represent only advance payment.</li>
+                    <li>The remittance amount covers full consultancy fees and applicable advance payment.</li>
+                    <li>All prices and amounts stated are inclusive of 5% VAT.</li>
+                    <li>No additional charges, taxes, or VAT are payable beyond the invoiced amount.</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="card">
+
+            <button class="success" onclick="printInvoice()">
+                Print Invoice
+            </button>
+
+        </div>
+
+        <!-- -------------------------------------- -->
+        <div class="card">
+
+            <div class="invoice-preview" id="invoiceCard">
+
+                <div id="invoiceContainer"></div>
+
+            </div>
+
+
+            <!-- <div class="card">
+
+                <h3>Invoice History</h3>
+
+                <div style="overflow:auto">
+                    <div class="table-wrapper">
+                        <table class="form-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Invoice</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyBody"></tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+        <!-- -------------------------------------- -->
+
+        
+
+    <script src="js/script.js"></script>
+</body>
+</html>
