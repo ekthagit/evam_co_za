@@ -234,10 +234,10 @@ button{
     padding-bottom:2px;
 }
 
-.address-box p{
+.address-box p, div{
     margin:0;
     line-height:1.8;
-    font-size:12px;
+    font-size:13px;
 }
 
 .invoice-details p{

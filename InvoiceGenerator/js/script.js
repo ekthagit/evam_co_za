@@ -260,12 +260,18 @@ function addRow() {
 
         const b = banks[bankAccount.value];
 
-        document.getElementById("bankPreview").innerHTML = `
-        <b>${b.bank}</b><br>
-        Account Name: ${b.name}<br>
-        Account Number: ${b.acc}<br>
-        IBAN: ${b.iban}<br>
-            SWIFT: ${b.swift}`;
+        let html = "";
+
+        for (const [key, value] of Object.entries(b)) {
+
+            if (key === "") {
+                html += `<b>${value}</b><br>`;
+            } else {
+                html += `<b>${key}:</b> ${value}<br>`;
+            }
+        }
+
+        document.getElementById("bankPreview").innerHTML = html;
 
             const termsEditor = document.getElementById("termsEditor");
             const previewTerms = document.getElementById("previewTerms");
@@ -287,7 +293,7 @@ function addRow() {
 
             document.getElementById("footerText").textContent = COMPANY.footerText;
             document.getElementById("companyName").innerHTML = COMPANY.name;
-            document.getElementById("companyFooter").innerHTML = COMPANY.name + "<br>" + COMPANY.address;
+            document.getElementById("companyFooter").innerHTML = COMPANY.name + "<br>" + COMPANY.address + "  " + COMPANY.phone;
 
         }
 
