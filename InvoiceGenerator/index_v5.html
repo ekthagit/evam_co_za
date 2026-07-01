@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Invoice Generator Pro</title>
-  <!--   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script> -->
-    <!-- <script src="libs/paged.polyfill.js"></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Invoice Generator</title>
+
     <script src="constants.js"></script>
 
     <link rel="stylesheet" href="css/style1.css">
@@ -15,7 +13,7 @@
     <div class="container">
 
         <div class="card">
-            <h2>Invoice Generator Pro</h2>
+            <h2>Invoice Generator</h2>
 
             <div class="flex">
 
@@ -25,10 +23,10 @@
 
                     <h3>Bill To</h3>
  
-                    <input id="billName" placeholder="Customer / Company Name" value="MyCustomer / Company Name">
-                    <input id="billVAT" placeholder="VAT Number (Optional)" value="My VAT Number (Optional)">
-                    <textarea id="billAddress" placeholder="Billing Address"> 123 Main Street, Hyderabad, Telangana, India - 500001</textarea>
-                    <input id="billPhone" placeholder="Phone Number" value="My Phone number">
+                    <input id="billName" placeholder="Customer / Company Name" required>
+                    <input id="billVAT" placeholder="VAT Number (Optional)">
+                    <textarea id="billAddress" placeholder="Billing Address" required></textarea>
+                    <input id="billPhone" placeholder="Phone Number" required>
                 </div>
 
                 <!-- SHIP TO -->
@@ -37,9 +35,14 @@
 
                     <h3>Ship To</h3>
 
-                    <input id="shipName" placeholder="Company Name" value="My Shipping Company Name">
-                    <textarea id="shipAddress" placeholder="Shipping Address">123 Main Street, Hyderabad, Telangana, India - 500001</textarea>
-                    <input id="shipPhone" placeholder="Phone Number" value="My Shipping Phone">
+                    <div class="checkbox-row">
+                        <input type="checkbox" id="sameAsBilling">
+                        <label for="sameAsBilling">Same as Bill To</label>
+                    </div>
+
+                    <input id="shipName" placeholder="Company Name" required>
+                    <textarea id="shipAddress" placeholder="Shipping Address" required></textarea>
+                    <input id="shipPhone" placeholder="Phone Number" required>
 
                 </div>
 
@@ -58,12 +61,10 @@
                     <input id="invoiceNo">
 
                     <label>Invoice Date</label>
-                    <input id="invoiceDate"
-                    type="date">
+                    <input id="invoiceDate" type="date">
 
                     <label>Due Date</label>
-                    <input id="dueDate"
-                    type="date">
+                    <input id="dueDate" type="date">
 
                 </div>
 

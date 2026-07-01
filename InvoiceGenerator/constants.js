@@ -31,8 +31,8 @@ const banks = {
 };
 
 const COMPANY = {
-
     name: "BSR Power Construction Pvt. Ltd.",
+    // name: "EVAM GLOBAL TRADING FZCO",
     address: "Plot No. 102, Industrial Area, Kukatpally, Hyderabad, Telangana - 500072",
     footerText: "This is a computer-generated invoice and no signature is required.",
     phone: "+91 9876543210",

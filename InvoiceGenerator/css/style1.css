@@ -1,3 +1,7 @@
+html{
+    -webkit-text-size-adjust:100%;
+    text-size-adjust:100%;
+}
 
 *,
 *::before,
@@ -127,8 +131,9 @@ button{
 =========================== */
 
 .invoice{
-    width:210mm;
-    min-height:297mm;
+    width:794px;          /* A4 @96dpi */
+    min-height:1123px;
+    margin:auto;
     display:flex;
     flex-direction:column;
     background:#fff;
@@ -162,9 +167,10 @@ button{
 
 .company-logo{
     display:block;
-    height:45px;      /* Try 40px–60px */
+    height:45px;
     width:auto;
-    margin:0 0 8px;
+    max-width:100%;
+    object-fit:contain;
 }
 
 .logo-section h2{
@@ -275,7 +281,7 @@ button{
 .invoice-table{
     width:100%;
     border-collapse:collapse;
-    margin-top:0px;
+    table-layout:fixed;
 }
 
 .invoice-table th{
@@ -288,6 +294,12 @@ button{
 .invoice-table td{
     padding:5px;
     border:1px solid #ddd;
+}
+
+.invoice-table th,
+.invoice-table td{
+    word-wrap:break-word;
+    vertical-align:top;
 }
 
 /* ===========================
@@ -411,12 +423,8 @@ button{
     }
 
     #invoice{
-        position:absolute;
-        left:0;
-        top:0;
-        margin:0;
-        width:100%;
-        box-shadow:none;
+        width:210mm !important;
+        min-height:297mm !important;
     }
 
     .invoice-table thead{
@@ -469,4 +477,24 @@ button{
 #previewTerms,
 #previewTerms *{
     font-family:'Poppins',sans-serif !important;
+}
+
+.checkbox-row{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    margin:8px 0 15px;
+}
+
+.checkbox-row input[type="checkbox"]{
+    width:auto;
+    margin:0;
+}
+
+.checkbox-row label{
+    margin:0;
+    font-weight:500;
+    cursor:pointer;
+    color: darkblue;
+    font-weight:600;
 }

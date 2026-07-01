@@ -85,6 +85,87 @@ function addRow() {
     ["billName","billVAT","billAddress","billPhone","shipName","shipAddress","shipPhone","invoiceNo","invoiceDate","dueDate","currency","bankAccount"]
     .forEach(id=>document.getElementById(id).addEventListener("input",updatePreview));
 
+    const sameAsBilling = document.getElementById("sameAsBilling");
+
+    function copyBillingDetails() {
+
+        shipName.value = billName.value;
+        shipAddress.value = billAddress.value;
+        shipPhone.value = billPhone.value;
+
+        updatePreview();
+    }
+
+    sameAsBilling.addEventListener("change", function () {
+
+        if (this.checked) {
+            copyBillingDetails();
+
+            shipName.readOnly = true;
+            shipAddress.readOnly = true;
+            shipPhone.readOnly = true;
+        } else {
+            shipName.readOnly = false;
+            shipAddress.readOnly = false;
+            shipPhone.readOnly = false;
+        }
+
+    });
+
+    ["billName","billAddress","billPhone"].forEach(id => {
+
+        document.getElementById(id).addEventListener("input", () => {
+
+            if (sameAsBilling.checked) {
+                copyBillingDetails();
+            }
+
+        });
+
+    });
+
+    
+    function validateInvoice() {
+
+        if (!billName.value.trim()) {
+            alert("Please enter Customer / Company Name.");
+            billName.focus();
+            return false;
+        }
+
+        if (!billAddress.value.trim()) {
+            alert("Please enter Billing Address.");
+            billAddress.focus();
+            return false;
+        }
+
+        if (!billPhone.value.trim()) {
+            alert("Please enter Billing Phone Number.");
+            billPhone.focus();
+            return false;
+        }
+
+        if (!shipName.value.trim()) {
+            alert("Please enter Shipping Company Name.");
+            shipName.focus();
+            return false;
+        }
+
+        if (!shipAddress.value.trim()) {
+            alert("Please enter Shipping Address.");
+            shipAddress.focus();
+            return false;
+        }
+
+        if (!shipPhone.value.trim()) {
+            alert("Please enter Shipping Phone Number.");
+            shipPhone.focus();
+            return false;
+        }
+
+        return true;
+    }
+
     function updatePreview() { 
         if(!document.getElementById('invoice')) return;
 
@@ -205,6 +286,7 @@ function addRow() {
             }
 
             document.getElementById("footerText").textContent = COMPANY.footerText;
+            document.getElementById("companyName").innerHTML = COMPANY.name;
             document.getElementById("companyFooter").innerHTML = COMPANY.name + "<br>" + COMPANY.address;
 
         }
@@ -216,15 +298,18 @@ function addRow() {
 
         function printInvoice() {
 
+            if (!validateInvoice()) return;
+
             updatePreview();
 
             const invoiceHTML = document.getElementById("invoice").outerHTML;
+            const printWindow = window.open("", "_blank");
 
-            const printWindow = window.open(
-                "",
-                "Invoice",
-                "width=900,height=1200,left=100,top=50"
-            );
+            // const printWindow = window.open(
+            //     "",
+            //     "Invoice",
+            //     "width=900,height=1200,left=100,top=50"
+            // );
 
             printWindow.document.write(`
         <!DOCTYPE html>
