@@ -67,8 +67,8 @@ const COMPANY = {
     name: "EVAM GLOBAL TRADING FZCO",
     address: "R320 ARABIAN BUSINESS CENTER, Oud Metha, Dubai, United Arab Emirates.",
     phone: "+971 0526283363",
-    footerText: "This is a computer-generated invoice and no signature is required.",
-    
+    footerInvoiceText: "This is a computer-generated invoice and no signature is required.",
+    footerPOText: "This is a computer-generated purchase order and no signature is required.",
     email: "accounts@bsrpower.com",
     website: "www.bsrpower.com",
     logo: "logo.svg" 

@@ -1,8 +1,5 @@
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-
-<div id="invoice" class="invoice">
+<div id="purchaseOrder" class="invoice">
 
 <div class="invoice-content">
     <div class="top-section">
@@ -14,7 +11,7 @@
         </div>
 
         <div class="invoice-title">
-            INVOICE
+            Purchase Order
         </div>
 
     </div>
@@ -49,21 +46,22 @@
     <div class="right-info">
 
         <div class="address-box">
-            <h3>Invoice Details</h3>
+            <h3>Purchase Order Details</h3>
 
-            <p><strong>Invoice No:</strong> <span id="pInv"></span></p>
-
-            <p><strong>Invoice Date:</strong> <span id="pDate"></span></p>
-
-            <p><strong>Due Date:</strong> <span id="pDueDate"></span></p>
+            <p><strong>Purchase Order No:</strong> <span id="pPONo"></span></p>
+            <p><strong>Purchase Order Date:</strong> <span id="pPODate"></span></p>
+            <p><strong>Delivery Term:</strong> <span id="pDeliveryTerm"></span></p>
+            <p><strong>Payment Terms:</strong> <span id="pPaymentTerms"></span></p>
 
         </div>
 
         <div class="address-box">
 
-            <h3>Payment Information</h3>
+            <h3>Vendor Details</h3>
 
-            <p><span id="bankPreview"></span></p>
+            <span id="pVendorName"></span><br>
+            <span id="pVendorAddress"></span><br>
+            <span id="pVendorPhone"></span>
 
         </div>
 
@@ -74,7 +72,7 @@
     <table class="invoice-table">
         <thead>
         <tr>
-            <th>Product Descriptions</th>
+            <th>Product Description</th>
             <th>Quantity</th>
             <th>Rate</th>
             <th>Tax</th>
@@ -93,7 +91,7 @@
             </div>
 
             <div class="total-row">
-                <span>VAT</span>
+                <span>TAX</span>
                 <span><span id="currencyLabel2"></span> <span id="vatAmt"></span></span>
             </div>
 

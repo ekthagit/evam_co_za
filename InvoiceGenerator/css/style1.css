@@ -171,6 +171,7 @@ button{
     width:auto;
     max-width:100%;
     object-fit:contain;
+    margin-bottom:10px;
 }
 
 .logo-section h2{
@@ -188,14 +189,31 @@ button{
 }
 
 .invoice-title{
-    min-width:220px;
-    text-align:center;
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    width:fit-content;
+
+    padding:4px 28px 4px 36px;
+
     background:#0d3e62;
     color:#fff;
-    padding:4px 5px;
+
     font-size:34px;
     font-weight:600;
+
     border-radius:40px 0 0 40px;
+
+    white-space:nowrap;
+}
+
+#companyName{
+    font-family: "Poppins", sans-serif;
+    /*color: #0d3e62;*/
+    font-size: 18px;
+    font-weight: 700;
 }
 
 /* ===========================
@@ -234,7 +252,7 @@ button{
     padding-bottom:2px;
 }
 
-.address-box p, div{
+.address-box *{
     margin:0;
     line-height:1.8;
     font-size:13px;
@@ -281,7 +299,7 @@ button{
 .invoice-table{
     width:100%;
     border-collapse:collapse;
-    table-layout:fixed;
+    table-layout:auto;
 }
 
 .invoice-table th{
@@ -356,7 +374,7 @@ button{
 
 .notes h3{
     color:#0d3e62;
-    margin-bottom:0px;
+    margin-bottom:10px;
 }
 
 .notes ol{
@@ -364,8 +382,8 @@ button{
 }
 
 .notes li{
-    margin-bottom:0px;
-    line-height:1;
+    margin-bottom:1px;
+    line-height:1.2;
 }
 
 /* ===========================
@@ -380,15 +398,12 @@ button{
 }
 
 .invoice .footer{
-    /*margin-top:5px;*/
-    margin:0px;
     background:#0d3e62;
     color:#fff;
     text-align:center;
-    /*padding:15px;*/
-    padding:16px 12mm;
-    font-size:14px;
-    line-height:1;
+    padding:8px 12mm;
+    font-size:13px;
+    line-height:1.2;
 }
 
 /* ===========================
@@ -400,47 +415,47 @@ button{
     margin:12mm;
 }
 
-@media print{
+@media print {
 
-    #invoice,
-    #invoice *{
-        font-family:'Poppins',sans-serif !important;
+    .invoice,
+    .invoice * {
+        font-family: 'Poppins', sans-serif !important;
     }
 
-    body{
-        background:#fff;
-        margin:0;
-        padding:0;
+    body {
+        background: #fff;
+        margin: 0;
+        padding: 0;
     }
 
-    body *{
-        visibility:hidden;
+    body * {
+        visibility: hidden;
     }
 
-    #invoice,
-    #invoice *{
-        visibility:visible;
+    .invoice,
+    .invoice * {
+        visibility: visible;
     }
 
-    #invoice{
-        width:210mm !important;
-        min-height:297mm !important;
+    .invoice {
+        width: 210mm !important;
+        min-height: 297mm !important;
     }
 
-    .invoice-table thead{
-        display:table-header-group;
+    .invoice-table thead {
+        display: table-header-group;
     }
 
-    .invoice-table tr{
-        page-break-inside:avoid;
-        break-inside:avoid;
+    .invoice-table tr {
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
 
     .notes,
     .total-section,
-    .footer{
-        page-break-inside:avoid;
-        break-inside:avoid;
+    .footer {
+        page-break-inside: avoid;
+        break-inside: avoid;
     }
 }
 
