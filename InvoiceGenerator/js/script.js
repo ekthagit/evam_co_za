@@ -1,33 +1,71 @@
 const documentType = document.getElementById("documentType");
 
+// async function loadTemplate() {
+//     const file =
+//         documentType.value === "purchaseOrder"
+//         ? "templates/purchase-order.html"
+//         : "templates/invoice.html";
+//     // const response = await fetch(file);
+//     const response = await fetch(file, {
+//         cache: "no-store"
+//     });
+//     const html = await response.text();
+//     document.getElementById("invoiceContainer").innerHTML = html;
+// }
+
 async function loadTemplate() {
+
+    if (documentType.value === "businessDocument") {
+        return;
+    }
+
     const file =
         documentType.value === "purchaseOrder"
         ? "templates/purchase-order.html"
         : "templates/invoice.html";
-    // const response = await fetch(file);
+
     const response = await fetch(file, {
         cache: "no-store"
     });
-    const html = await response.text();
-    document.getElementById("invoiceContainer").innerHTML = html;
+
+    document.getElementById("invoiceContainer").innerHTML =
+        await response.text();
 }
 
 async function loadForm() {
 
+    if (documentType.value === "businessDocument") {
+        return;
+    }
+
     const file =
         documentType.value === "purchaseOrder"
-            ? "forms/purchase-order.html"
-            : "forms/invoice.html";
+        ? "forms/purchase-order.html"
+        : "forms/invoice.html";
 
-    // const response = await fetch(file);
     const response = await fetch(file, {
         cache: "no-store"
     });
+
     document.getElementById("formContainer").innerHTML =
         await response.text();
-
 }
+
+// async function loadForm() {
+
+//     const file =
+//         documentType.value === "purchaseOrder"
+//             ? "forms/purchase-order.html"
+//             : "forms/invoice.html";
+
+//     // const response = await fetch(file);
+//     const response = await fetch(file, {
+//         cache: "no-store"
+//     });
+//     document.getElementById("formContainer").innerHTML =
+//         await response.text();
+
+// }
 
 window.addEventListener("DOMContentLoaded", async () => {
 
@@ -111,20 +149,50 @@ function addRow() {
         updatePreview();
     }
 
-    function attachDocumentEvents() { 
-        documentType.addEventListener("change", async () => { 
-            await loadForm(); 
-            await loadTemplate(); 
-            initializeForm(); 
-            if (isPurchaseOrder()) {
-                attachPurchaseOrderEvents();
-            } else {
-                attachInvoiceEvents();
-            }
+function attachDocumentEvents() {
 
-            updatePreview(); 
-        }); 
-    }
+    documentType.addEventListener("change", async () => {
+
+        if (documentType.value === "businessDocument") {
+
+            window.open("forms/document.html", "_blank");
+
+            documentType.value = "invoice";   // or purchaseOrder if you prefer
+
+            return;
+        }
+
+        await loadForm();
+        await loadTemplate();
+
+        initializeForm();
+
+        if (isPurchaseOrder()) {
+            attachPurchaseOrderEvents();
+        } else {
+            attachInvoiceEvents();
+        }
+
+        updatePreview();
+
+    });
+
+}
+
+    // function attachDocumentEvents() { 
+    //     documentType.addEventListener("change", async () => { 
+    //         await loadForm(); 
+    //         await loadTemplate(); 
+    //         initializeForm(); 
+    //         if (isPurchaseOrder()) {
+    //             attachPurchaseOrderEvents();
+    //         } else {
+    //             attachInvoiceEvents();
+    //         }
+
+    //         updatePreview(); 
+    //     }); 
+    // }
 
     function printDocument() {
 
@@ -231,4 +299,23 @@ function amountToWords(amount, currency) {
     words += " Only";
 
     return words;
+}
+
+function showCurrencyWidget() {
+
+    const modal = document.getElementById("currencyModal");
+    const frame = document.getElementById("xeFrame");
+
+    // Reload every time for fresh data
+    frame.src =
+        "https://www.xe.com/currencyconverter/fx-widget?amount=1&from=USD&to=INR&t=" +
+        Date.now();
+
+    modal.style.display = "flex";
+}
+
+function closeCurrencyWidget() {
+
+    document.getElementById("currencyModal").style.display = "none";
+    document.getElementById("xeFrame").src = "";
 }
