@@ -4,7 +4,7 @@
    ========================================================== */
 
 const docDate = document.getElementById("docDate");
-const docText = document.getElementById("docText");
+const editor = document.getElementById("editor");
 const signName = document.getElementById("signName");
 const designation = document.getElementById("designation");
 
@@ -28,13 +28,96 @@ window.addEventListener("DOMContentLoaded", () => {
 =========================================== */
 
 docDate.addEventListener("input", updatePreview);
-docText.addEventListener("input", updatePreview);
+editor.addEventListener("input", updatePreview);
 signName.addEventListener("input", updatePreview);
 designation.addEventListener("input", updatePreview);
+
+editor.addEventListener("keyup", updateToolbar);
+editor.addEventListener("mouseup", updateToolbar);
+editor.addEventListener("input", updateToolbar);
+
+document
+.querySelectorAll(".toolbar button")
+.forEach(button=>{
+
+    button.addEventListener("click",function(){
+
+        editor.focus();
+
+        document.execCommand(
+            this.dataset.command,
+            false,
+            null
+        );
+        updateToolbar();
+        updatePreview();
+
+    });
+
+});
 
 printBtn.addEventListener("click", () => {
 
     window.print();
+
+});
+
+const fontFamily =
+document.getElementById("fontFamily");
+
+fontFamily.addEventListener("change",function(){
+
+    editor.focus();
+
+    document.execCommand(
+        "fontName",
+        false,
+        this.value
+    );
+
+    updatePreview();
+
+});
+
+fontSize.addEventListener("change",function(){
+
+    editor.focus();
+
+    document.execCommand(
+        "fontSize",
+        false,
+        this.value
+    );
+
+    updatePreview();
+
+});
+
+textColor.addEventListener("input",function(){
+
+    editor.focus();
+
+    document.execCommand(
+        "foreColor",
+        false,
+        this.value
+    );
+
+    updatePreview();
+
+});
+
+highlightColor.addEventListener("input",function(){
+
+    editor.focus();
+
+    document.execCommand(
+        "hiliteColor",
+        false,
+        this.value
+    );
+
+    updatePreview();
 
 });
 
@@ -86,20 +169,11 @@ function updatePreview() {
 
     const page = createPage();
 
-    page.querySelector(".previewDate").textContent =
-        formatDate(docDate.value);
-
-    page.querySelector(".previewText").textContent =
-        docText.value;
-
-    page.querySelector(".previewName").textContent =
-        signName.value;
-
-    page.querySelector(".previewDesignation").textContent =
-        designation.value;
-
+    page.querySelector(".previewDate").textContent = formatDate(docDate.value);
+    page.querySelector(".previewText").innerHTML = editor.innerHTML;
+    page.querySelector(".previewName").textContent = signName.value;
+    page.querySelector(".previewDesignation").textContent = designation.value;
     documentContainer.appendChild(page);
-
 }
 
 /* ===========================================
@@ -118,6 +192,13 @@ function createPage() {
             src="../images/header.png"
             class="header-img"
             alt="Header">
+        <div class="watermark">
+
+            <img
+                src="../logo.svg"
+                alt="Watermark">
+
+        </div>
 
         <div class="content">
 
@@ -147,5 +228,31 @@ function createPage() {
     `;
 
     return page;
+
+}
+
+function updateToolbar() {
+
+    document.querySelectorAll(".toolbar button").forEach(button => {
+
+        const cmd = button.dataset.command;
+
+        try {
+
+            if (document.queryCommandState(cmd)) {
+
+                button.classList.add("active");
+
+            } else {
+
+                button.classList.remove("active");
+
+            }
+
+        } catch (e) {
+            // Some commands don't support queryCommandState
+        }
+
+    });
 
 }

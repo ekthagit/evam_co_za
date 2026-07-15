@@ -133,6 +133,70 @@ button:hover{
 
 }
 
+.color-box{
+
+    width:38px;
+    height:38px;
+
+    border:1px solid #ccc;
+
+    border-radius:4px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+.color-box input{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+    padding:0;
+
+    cursor:pointer;
+
+}
+
+.color-tool{
+
+    position:relative;
+
+    width:34px;
+    height:34px;
+
+    border:1px solid #d0d5dc;
+    border-radius:4px;
+
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    overflow:hidden;
+
+}
+
+.color-tool input{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    cursor:pointer;
+
+}
+
 /* ==========================================================
    RIGHT PANEL
    ========================================================== */
@@ -374,5 +438,208 @@ button:hover{
     page-break-inside:avoid;
 
     break-inside:avoid;
+
+}
+
+/* ======================================
+   RICH TEXT EDITOR
+====================================== */
+
+.toolbar{
+
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:6px;
+
+    padding:8px;
+
+    border:1px solid #d8dde4;
+    border-radius:6px;
+
+    background:#f7f9fb;
+
+    margin-bottom:12px;
+
+}
+
+.toolbar button{
+
+    width:34px;
+    height:34px;
+
+    padding:0;
+
+    border:1px solid #d0d5dc;
+
+    background:#fff;
+
+    color:#333;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+.toolbar button:not(.active):hover{
+
+    background:#eef4f8;
+
+}
+
+.toolbar button.active{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border-color:var(--primary);
+
+}
+
+.toolbar button:focus{
+
+    outline:2px solid #7aa7d9;
+    outline-offset:2px;
+
+}
+
+.toolbar select{
+
+    height:34px;
+
+    border:1px solid #d0d5dc;
+
+    border-radius:4px;
+
+    padding:0 8px;
+
+    background:#fff;
+
+}
+
+#fontFamily{
+
+    width:120px;
+
+}
+
+#fontSize{
+
+    width:58px;
+
+}
+
+.tool-group{
+
+    display:flex;
+    align-items:center;
+
+    gap:4px;
+
+}
+
+.divider{
+
+    width:1px;
+
+    height:26px;
+
+    background:#d7dde4;
+
+    margin:0 2px;
+
+}
+
+.toolbar input[type=color]{
+
+    width:34px;
+
+    height:34px;
+
+    border:1px solid #d0d5dc;
+
+    border-radius:4px;
+
+    padding:2px;
+
+    background:#fff;
+
+    cursor:pointer;
+
+}
+
+.editor{
+
+    min-height:450px;
+
+    background:#fff;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    padding:15px;
+
+    overflow:auto;
+
+    outline:none;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+.editor:empty:before{
+
+    content:"Type your document here...";
+
+    color:#999;
+
+}
+
+.document-text p {
+    margin: 0 0 12px 0;
+}
+
+.document-text ul,
+.document-text ol {
+    margin: 0 0 12px 0;
+    padding-left: 28px;
+}
+
+.document-text li {
+    margin-bottom: 6px;
+}
+
+/* ==========================================
+   WATERMARK
+========================================== */
+
+.watermark{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.watermark img{
+
+    width:280px;
+
+    opacity:.05;
 
 }
