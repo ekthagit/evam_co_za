@@ -3,13 +3,19 @@
    document.js
    ========================================================== */
 
+const docTitle = document.getElementById("docTitle");
+const leftSignName = document.getElementById("leftSignName");
+const leftDesignation = document.getElementById("leftDesignation");
+
 const docDate = document.getElementById("docDate");
 const editor = document.getElementById("editor");
+const showRightSignature = document.getElementById("showRightSignature");
 const signName = document.getElementById("signName");
 const designation = document.getElementById("designation");
 
 const printBtn = document.getElementById("printBtn");
 const documentContainer = document.getElementById("documentContainer");
+
 
 /* ===========================================
    Initialize
@@ -28,7 +34,11 @@ window.addEventListener("DOMContentLoaded", () => {
 =========================================== */
 
 docDate.addEventListener("input", updatePreview);
+docTitle.addEventListener("input", updatePreview);
+leftSignName.addEventListener("input", updatePreview);
+leftDesignation.addEventListener("input", updatePreview);
 editor.addEventListener("input", updatePreview);
+showRightSignature.addEventListener("change", updatePreview);
 signName.addEventListener("input", updatePreview);
 designation.addEventListener("input", updatePreview);
 
@@ -173,6 +183,34 @@ function updatePreview() {
     page.querySelector(".previewText").innerHTML = editor.innerHTML;
     page.querySelector(".previewName").textContent = signName.value;
     page.querySelector(".previewDesignation").textContent = designation.value;
+    page.querySelector(".leftName").textContent = leftSignName.value;
+    page.querySelector(".leftDesignation").textContent = leftDesignation.value;
+
+    const title = docTitle.value.trim();
+    const titleDiv = page.querySelector(".previewTitle");
+    const left = page.querySelector(".left-signature");
+    const right = page.querySelector(".right-signature");
+
+    if (title === "") {
+
+        titleDiv.style.display = "none";
+        left.style.visibility = "hidden";
+
+    } else {
+
+        titleDiv.style.display = "block";
+        titleDiv.textContent = title;
+
+        left.style.visibility = "visible";
+
+    }
+
+    if (showRightSignature.checked) {
+        right.style.display = "block";
+    } else {
+        right.style.display = "none";
+    }
+
     documentContainer.appendChild(page);
 }
 
@@ -188,47 +226,38 @@ function createPage() {
 
     page.innerHTML = `
 
-        <img
-            src="../images/header.png"
-            class="header-img"
-            alt="Header">
+        <img src="../images/header.png" class="header-img"  alt="Header">
+
         <div class="watermark">
-
-            <img
-                src="../logo.svg"
-                alt="Watermark">
-
+            <img src="../logo.svg" alt="Watermark">
         </div>
 
         <div class="content">
-
+            <div class="document-title previewTitle"></div>
             <div class="date-row">
-
                 <span class="previewDate"></span>
-
             </div>
 
             <div class="document-text previewText"></div>
 
-            <div class="signature">
+            <div class="signature-section">
+                <div class="left-signature">
+                    <div class="leftName"></div>
+                    <div class="leftDesignation"></div>
+                </div>
 
-                <div class="sign-name previewName"></div>
-
-                <div class="sign-designation previewDesignation"></div>
-
+                <div class="right-signature">
+                    <img src="../images/signature.png" class="signature-img">
+                    <div class="previewName"></div>
+                    <div class="previewDesignation"></div>
+                </div>
             </div>
-
         </div>
 
-        <img
-            src="../images/footer.png"
-            class="footer-img"
-            alt="Footer">
-
+        <img src="../images/footer.png" class="footer-img" alt="Footer">
     `;
 
     return page;
-
 }
 
 function updateToolbar() {

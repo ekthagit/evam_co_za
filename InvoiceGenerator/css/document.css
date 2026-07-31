@@ -281,11 +281,102 @@ button:hover{
 
 }
 
-.signature{
+.document-title{
 
-    margin-top:25px;
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+    color:#222;
+
+}
+
+.signature-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-top:5px;
+
+}
+
+.left-signature,
+.right-signature{
+
+    width:40%;
+
+}
+
+.left-signature{
+
+    text-align:left;
+
+}
+
+.right-signature{
 
     text-align:right;
+
+}
+
+/* Checkbox */
+
+.checkbox-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.checkbox-label input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    margin:0;
+
+    cursor:pointer;
+
+    accent-color:var(--primary);
+
+}
+
+.checkbox-label span{
+
+    line-height:1;
+
+}
+
+.signature-img{
+
+    display:block;
+
+    width:170px;
+
+    height:auto;
+
+    margin-left:auto;      /* Push image to the right */
+
+    margin-bottom:8px;
 
 }
 
@@ -304,6 +395,30 @@ button:hover{
     color:#555;
 
     font-size:15px;
+
+}
+
+.previewName,
+.leftName{
+
+    display:block;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+.previewDesignation,
+.leftDesignation{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:15px;
+
+    color:#555;
 
 }
 

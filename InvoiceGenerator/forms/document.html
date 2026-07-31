@@ -20,6 +20,14 @@
         <h2>Business Document</h2>
 
         <div class="form-group">
+
+            <label for="docTitle">Document Title</label>
+
+            <input type="text" id="docTitle" placeholder="Leave blank for normal letter">
+
+        </div>
+
+        <div class="form-group">
             <label for="docDate">Date</label>
             <input type="date" id="docDate">
         </div>
@@ -114,14 +122,9 @@
 
                     </button>
 
-                    <button type="button"
-                        data-command="insertOrderedList"
-                        title="Numbered List">
-
+                    <button type="button" data-command="insertOrderedList" title="Numbered List">
                         1.
-
                     </button>
-
                 </div>
 
                 <div class="divider"></div>
@@ -129,47 +132,51 @@
                 <!-- Clear Formatting -->
                 <div class="tool-group">
 
-                    <button
-                        type="button"
-                        data-command="removeFormat"
-                        title="Clear Formatting">
-
+                    <button type="button" data-command="removeFormat" title="Clear Formatting">
                         Tx
-
                     </button>
-
                 </div>
 
             </div>
 
-            <div
-                id="editor"
-                class="editor"
-                contenteditable="true"
-                spellcheck="true">
-
+            <div id="editor" class="editor" contenteditable="true" spellcheck="true">
             </div>
 
         </div>
 
         <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="showRightSignature" checked>
+                <span>Show Right Signature</span>
+            </label>
+        </div>
+
+        <div class="form-group">
             <label for="signName">Name</label>
-            <input
-                type="text"
-                id="signName"
-                placeholder="John Smith">
+            <input type="text" id="signName" placeholder="Name">
         </div>
 
         <div class="form-group">
             <label for="designation">Designation</label>
-            <input
-                type="text"
-                id="designation"
-                placeholder="General Manager">
+            <input type="text" id="designation" placeholder="General Manager">
+        </div>
+
+        <hr>
+        <br />
+        <h3>Left Party</h3>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="leftSignName">
+        </div>
+
+        <div class="form-group">
+            <label>Designation</label>
+            <input type="text" id="leftDesignation">
         </div>
 
         <button id="printBtn">
-            Print / Save PDF
+            Print PDF
         </button>
 
     </aside>
