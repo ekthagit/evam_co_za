@@ -53,6 +53,10 @@
         <label>Due Date</label>
         <input id="dueDate" type="date">
 
+        <label>
+            HSN Number
+            <input type="text" id="hsnNumber">
+        </label>
     </div>
 
     <!-- PAYMENT INFO -->
@@ -71,10 +75,19 @@
                 (WIO) (USD)
             </option>
             <option value="bank3">
+                (WIO) (EURO)
+            </option>
+            <option value="bank4">
+                (WIO) (GBP)
+            </option>
+            <option value="bank5">
+                (WIO) (CHF)
+            </option>
+            <option value="bank6">
                 (Mashreq) (USD)
             </option>
 
-            <option value="bank4">
+            <option value="bank7">
                 (Mashreq) (AED)
             </option>
 
@@ -105,10 +118,53 @@
 <div class="card">
     <h3>Products</h3>
     <div class="table-wrapper">
+        <button type="button" id="editColumnsBtn">
+            Edit Columns
+        </button>
+
+        <div id="columnSettings" style="display:none; margin:10px 0; padding:15px; border:1px solid #ccc; border-radius:6px; background:#f9f9f9;">
+
+            <strong>Column Names</strong>
+
+            <div>
+                <label>Product</label>
+                <input type="text" id="columnNameProduct" value="Product">
+            </div>
+
+            <div>
+                <label>Quantity</label>
+                <input type="text" id="columnNameQty" value="Qty">
+            </div>
+
+            <div>
+                <label>Rate</label>
+                <input type="text" id="columnNameRate" value="Rate">
+            </div>
+
+            <div>
+                <label>Discount</label>
+                <input type="text" id="columnNameDiscount" value="Discount">
+            </div>
+
+            <div>
+                <label>VAT</label>
+                <input type="text" id="columnNameVAT" value="VAT">
+            </div>
+
+            <div>
+                <label>Amount</label>
+                <input type="text" id="columnNameAmount" value="Amount">
+            </div>
+        </div>
         <table class="form-table">
             <thead>
                 <tr>
-                    <th>Product</th><th>Qty</th><th>Rate</th><th>VAT %</th><th>Action</th>
+                    <th id="formHeaderProduct">Product</th>
+                    <th id="formHeaderQty">Qty</th>
+                    <th id="formHeaderRate">Rate</th>
+                    <th id="formHeaderDiscount">Discount</th>
+                    <th id="formHeaderVAT">VAT %</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody id="rows"></tbody>

@@ -54,6 +54,7 @@
             <p><strong>Invoice No:</strong> <span id="pInv"></span></p>
             <p><strong>Invoice Date:</strong> <span id="pDate"></span></p>
             <p><strong>Due Date:</strong> <span id="pDueDate"></span></p>
+            <div id="divHSN"> <p><strong>HSN No:</strong> <span id="spanHSN"></span></p> </div>
         </div>
 
         <div class="address-box">
@@ -67,13 +68,14 @@
 
     <table class="invoice-table">
         <thead>
-        <tr>
-            <th>Product Description</th>
-            <th>Quantity</th>
-            <th>Rate</th>
-            <th>Tax</th>
-            <th>Amount</th>
-        </tr>
+            <tr>
+                <th id="previewHeaderProduct">Product</th>
+                <th id="previewHeaderQty">Qty</th>
+                <th id="previewHeaderRate">Rate</th>
+                <th id="previewDiscountHeader">Discount</th>
+                <th id="previewHeaderTax">Tax</th>
+                <th id="previewHeaderAmount">Amount</th>
+            </tr>
         </thead>
         <tbody id="previewRows"></tbody>
     </table>
@@ -86,6 +88,14 @@
                 <span class="amount-group">
                     <span class="currency" id="currencyLabel1"></span>
                     <span class="value" id="sub"></span>
+                </span>
+            </div>
+
+            <div class="total-row" id="discountRow">
+                <span>Discount</span>
+                <span class="amount-group">
+                    <span class="currency" id="currencyLabelDiscount"></span>
+                    <span class="value" id="discountTotal"></span>
                 </span>
             </div>
 

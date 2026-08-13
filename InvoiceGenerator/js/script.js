@@ -105,6 +105,7 @@ function addRow() {
         <td><input class="prod"></td>
         <td><input class="qty" type="number" value="1"></td>
         <td><input class="rate" type="number" value="0"></td>
+        <td><input class="discount" type="number" value="0"></td>
         <td><input class="vat" type="number" value="0"></td>
         <td><button class="danger" onclick="this.closest('tr').remove();updatePreview()">X</button></td>`;
         document.getElementById("rows").appendChild(tr);

@@ -18,6 +18,8 @@ const banks = {
         "": "EVAM GLOBAL TRADING - FZCO",
         "IBAN": "AE350860000009716500207",
         "BIC": "WIOBAEADXXX",
+        "ACCOUNT NUMBER:": "9716500207",
+        "ROUTING CODE:": "808610001",
         "Bank address": "Etihad Airways Centre 5th Floor, Abu Dhabi, UAE"
     },
     bank2: {
@@ -25,16 +27,42 @@ const banks = {
         "": "EVAM GLOBAL TRADING - FZCO",
         "IBAN": "AE170860000009460418203",
         "BIC": "WIOBAEADXXX",
+        "ACCOUNT NUMBER:": "9460418203",
+        "ROUTING CODE:": "808610001",
         "Bank address": "Etihad Airways Centre 5th Floor, Abu Dhabi, UAE"
     },
     bank3: {
+        "": "EVAM GLOBAL TRADING - FZCO",
+        "IBAN": "AE350860000009558572276",
+        "BIC/SWIFT:": "WIOBAEADXXX",
+        "ACCOUNT NUMBER:": "9558572276",
+        "ROUTING CODE:": "808610001",
+        "Bank address": "Etihad Airways Centre 5th Floor, Abu Dhabi, UAE"
+    },
+    bank4: {
+        "": "EVAM GLOBAL TRADING - FZCO",
+        "IBAN": "AE120860000009416136532",
+        "BIC/SWIFT:": "WIOBAEADXXX",
+        "ACCOUNT NUMBER:": "9416136532",
+        "ROUTING CODE:": "808610001",
+        "Bank address": "Etihad Airways Centre 5th Floor, Abu Dhabi, UAE"
+    },
+    bank5: {
+        "": "EVAM GLOBAL TRADING - FZCO",
+        "IBAN": "AE560860000009812462899",
+        "BIC/SWIFT:": "WIOBAEADXXX",
+        "ACCOUNT NUMBER:": "9812462899",
+        "ROUTING CODE:": "808610001",
+        "Bank address": "Etihad Airways Centre 5th Floor, Abu Dhabi, UAE"
+    },
+    bank6: {
         
         "Account Holder Name" : "EVAM GLOBAL TRADING FZCO",
         "Bank Name" : "Mashreq Bank",
         "Account Number" : "019102080661",
         "IBAN" : "AE700330000019102080661"
     },
-    bank4: {
+    bank7: {
         
         "Account Holder Name" : "EVAM GLOBAL TRADING FZCO",
         "Bank Name" : "Mashreq Bank",
