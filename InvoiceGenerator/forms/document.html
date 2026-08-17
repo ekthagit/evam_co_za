@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Document Generator</title>
+
+    <link rel="stylesheet" href="../css/document.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- ==========================
+         LEFT PANEL
+    =========================== -->
+
+    <aside class="controls">
+
+        <h2>Business Document</h2>
+
+        <div class="form-group">
+
+            <label for="docTitle">Document Title</label>
+
+            <input type="text" id="docTitle" placeholder="Leave blank for normal letter">
+
+        </div>
+
+        <div class="form-group">
+            <label for="docDate">Date</label>
+            <input type="date" id="docDate">
+        </div>
+
+        <div class="form-group">
+
+            <label>Document Text</label>
+
+            <div class="toolbar" id="toolbar">
+
+                <!-- Font -->
+                <div class="tool-group">
+
+                    <select id="fontFamily">
+                        <option value="Arial">Arial</option>
+                        <option value="Calibri">Calibri</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Tahoma">Tahoma</option>
+                    </select>
+
+                    <select id="fontSize">
+                        <option value="2">10</option>
+                        <option value="3" selected>12</option>
+                        <option value="4">14</option>
+                        <option value="5">18</option>
+                        <option value="6">24</option>
+                    </select>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Text Formatting -->
+                <div class="tool-group">
+
+                    <button type="button" data-command="bold" title="Bold"><b>B</b></button>
+
+                    <button type="button" data-command="italic" title="Italic"><i>I</i></button>
+
+                    <button type="button" data-command="underline" title="Underline"><u>U</u></button>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Colors -->
+                <div class="tool-group">
+
+                    <label class="color-tool" title="Text Color">
+
+                        A
+
+                        <input type="color" id="textColor">
+
+                    </label>
+
+                    <label class="color-tool" title="Highlight Color">
+
+                        🖍
+
+                        <input type="color" id="highlightColor">
+
+                    </label>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Alignment -->
+                <div class="tool-group">
+
+                    <button type="button" data-command="justifyLeft" title="Align Left">L</button>
+
+                    <button type="button" data-command="justifyCenter" title="Align Center">C</button>
+
+                    <button type="button" data-command="justifyRight" title="Align Right">R</button>
+
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Lists -->
+                <div class="tool-group">
+
+                    <button type="button"
+                        data-command="insertUnorderedList"
+                        title="Bullet List">
+
+                        •
+
+                    </button>
+
+                    <button type="button" data-command="insertOrderedList" title="Numbered List">
+                        1.
+                    </button>
+                </div>
+
+                <div class="divider"></div>
+
+                <!-- Clear Formatting -->
+                <div class="tool-group">
+
+                    <button type="button" data-command="removeFormat" title="Clear Formatting">
+                        Tx
+                    </button>
+                </div>
+
+            </div>
+
+            <div id="editor" class="editor" contenteditable="true" spellcheck="true">
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label class="checkbox-label">
+                <input type="checkbox" id="showRightSignature" checked>
+                <span>Show Right Signature</span>
+            </label>
+        </div>
+
+        <div class="form-group">
+            <label for="signName">Name</label>
+            <input type="text" id="signName" placeholder="Name">
+        </div>
+
+        <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" placeholder="General Manager">
+        </div>
+
+        <hr>
+        <br />
+        <h3>Left Party</h3>
+
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" id="leftSignName">
+        </div>
+
+        <div class="form-group">
+            <label>Designation</label>
+            <input type="text" id="leftDesignation">
+        </div>
+
+        <button id="printBtn">
+            Print PDF
+        </button>
+
+    </aside>
+
+
+
+    <!-- ==========================
+         RIGHT PANEL
+    =========================== -->
+
+    <main class="preview-area">
+
+        <div id="documentContainer"></div>
+
+    </main>
+
+</div>
+
+<script src="../js/document.js"></script>
+
+</body>
+</html>

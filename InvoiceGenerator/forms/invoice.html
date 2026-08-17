@@ -1,0 +1,189 @@
+
+
+<div class="flex">
+
+
+
+    <!-- BILL TO -->
+
+    <div class="col">
+
+        <h3>Bill To</h3>
+
+        <input id="billName" placeholder="Customer / Company Name" required>
+        <input id="billVAT" placeholder="VAT Number (Optional)">
+        <textarea id="billAddress" placeholder="Billing Address" required></textarea>
+        <input id="billPhone" placeholder="Phone Number" required>
+    </div>
+
+    <!-- SHIP TO -->
+
+    <div class="col">
+
+        <h3>Ship To</h3>
+
+        <div class="checkbox-row">
+            <input type="checkbox" id="sameAsBilling">
+            <label for="sameAsBilling">Same as Bill To</label>
+        </div>
+
+        <input id="shipName" placeholder="Company Name" required>
+        <textarea id="shipAddress" placeholder="Shipping Address"></textarea>
+        <input id="shipPhone" placeholder="Phone Number">
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="flex">
+
+    <!-- INVOICE DETAILS -->
+
+    <div class="col">
+
+        <h3>Invoice Details</h3>
+
+        <input id="invoiceNo">
+
+        <label>Invoice Date</label>
+        <input id="invoiceDate" type="date">
+
+        <label>Due Date</label>
+        <input id="dueDate" type="date">
+
+        <label>
+            HSN Number
+            <input type="text" id="hsnNumber">
+        </label>
+    </div>
+
+    <!-- PAYMENT INFO -->
+
+    <div class="col">
+
+        <h3>Payment Information</h3>
+
+        <select id="bankAccount">
+
+            <option value="bank1">
+                (WIO) (AED)
+            </option>
+
+            <option value="bank2">
+                (WIO) (USD)
+            </option>
+            <option value="bank3">
+                (WIO) (EURO)
+            </option>
+            <option value="bank4">
+                (WIO) (GBP)
+            </option>
+            <option value="bank5">
+                (WIO) (CHF)
+            </option>
+            <option value="bank6">
+                (Mashreq) (USD)
+            </option>
+
+            <option value="bank7">
+                (Mashreq) (AED)
+            </option>
+
+        </select>
+
+        <label>Currency</label>
+
+        <select id="currency">
+
+            <option value="AED">
+                AED
+            </option>
+
+            <option value="USD">
+                USD
+            </option>
+
+            <option value="INR">
+                INR
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+<div class="card">
+    <h3>Products</h3>
+    <div class="table-wrapper">
+        <button type="button" id="editColumnsBtn">
+            Edit Columns
+        </button>
+
+        <div id="columnSettings" style="display:none; margin:10px 0; padding:15px; border:1px solid #ccc; border-radius:6px; background:#f9f9f9;">
+
+            <strong>Column Names</strong>
+
+            <div>
+                <label>Product</label>
+                <input type="text" id="columnNameProduct" value="Product">
+            </div>
+
+            <div>
+                <label>Quantity</label>
+                <input type="text" id="columnNameQty" value="Qty">
+            </div>
+
+            <div>
+                <label>Rate</label>
+                <input type="text" id="columnNameRate" value="Rate">
+            </div>
+
+            <div>
+                <label>Discount</label>
+                <input type="text" id="columnNameDiscount" value="Discount">
+            </div>
+
+            <div>
+                <label>VAT</label>
+                <input type="text" id="columnNameVAT" value="VAT">
+            </div>
+
+            <div>
+                <label>Amount</label>
+                <input type="text" id="columnNameAmount" value="Amount">
+            </div>
+        </div>
+        <table class="form-table">
+            <thead>
+                <tr>
+                    <th id="formHeaderProduct">Product</th>
+                    <th id="formHeaderQty">Qty</th>
+                    <th id="formHeaderRate">Rate</th>
+                    <th id="formHeaderDiscount">Discount</th>
+                    <th id="formHeaderVAT">VAT %</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+    </div>
+    <br>
+    <button class="primary" onclick="addRow()">Add Product</button>
+</div>
+
+<div class="form-group">
+    <label><strong>Terms & Conditions</strong></label>
+
+    <div id="termsEditor" contenteditable="true" style=" min-height:150px; border:1px solid #ccc; padding:10px; border-radius:4px; background:#fff; ">
+        <ol>
+            <li>Consultancy services included in this invoice are charged and payable in full.</li>
+            <li>Product values reflected in this invoice represent only advance payment.</li>
+            <li>The remittance amount covers full consultancy fees and applicable advance payment.</li>
+            <li>All prices and amounts stated are inclusive of 5% VAT.</li>
+            <li>No additional charges, taxes, or VAT are payable beyond the invoiced amount.</li>
+        </ol>
+    </div>
+</div>

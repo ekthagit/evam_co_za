@@ -1,0 +1,760 @@
+/* ==========================================================
+   BUSINESS DOCUMENT GENERATOR
+   document.css
+   ========================================================== */
+
+/* ---------- Reset ---------- */
+
+*,
+*::before,
+*::after{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+:root{
+
+    --primary:#0d3e62;
+    --border:#d7dde4;
+    --bg:#eef2f6;
+    --white:#ffffff;
+    --text:#222;
+    --radius:8px;
+    --shadow:0 8px 30px rgba(0,0,0,.08);
+
+}
+
+body{
+
+    font-family:Arial,Helvetica,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+
+}
+
+/* ==========================================================
+   LAYOUT
+   ========================================================== */
+
+.container{
+
+    display:flex;
+    min-height:100vh;
+
+}
+
+/* ==========================================================
+   LEFT PANEL
+   ========================================================== */
+
+.controls{
+
+    width:360px;
+    background:#fff;
+    padding:25px;
+    border-right:1px solid var(--border);
+
+    overflow:auto;
+
+}
+
+.controls h2{
+
+    margin-bottom:25px;
+    color:var(--primary);
+
+}
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+label{
+
+    display:block;
+    font-size:14px;
+    margin-bottom:8px;
+    font-weight:bold;
+
+}
+
+input,
+textarea{
+
+    width:100%;
+    border:1px solid #cfd7df;
+    border-radius:6px;
+    padding:10px 12px;
+    font-size:15px;
+    outline:none;
+
+}
+
+input:focus,
+textarea:focus{
+
+    border-color:var(--primary);
+
+}
+
+textarea{
+
+    resize:vertical;
+    min-height:350px;
+    line-height:1.6;
+
+}
+
+button{
+
+    width:100%;
+    border:none;
+    background:var(--primary);
+    color:#fff;
+
+    padding:14px;
+
+    font-size:16px;
+
+    border-radius:6px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    opacity:.9;
+
+}
+
+.color-box{
+
+    width:38px;
+    height:38px;
+
+    border:1px solid #ccc;
+
+    border-radius:4px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+}
+
+.color-box input{
+
+    width:100%;
+    height:100%;
+
+    border:none;
+
+    padding:0;
+
+    cursor:pointer;
+
+}
+
+.color-tool{
+
+    position:relative;
+
+    width:34px;
+    height:34px;
+
+    border:1px solid #d0d5dc;
+    border-radius:4px;
+
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+    overflow:hidden;
+
+}
+
+.color-tool input{
+
+    position:absolute;
+
+    inset:0;
+
+    opacity:0;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================================
+   RIGHT PANEL
+   ========================================================== */
+
+.preview-area{
+
+    flex:1;
+
+    overflow:auto;
+
+    padding:40px;
+
+}
+
+/* ==========================================================
+   A4 PAGE
+   ========================================================== */
+
+.page{
+    width:210mm;
+    height:297mm;
+
+    background:#fff;
+    margin:20px auto;
+
+    position:relative;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.15);
+
+    overflow:hidden;
+}
+
+.content{
+
+    position:absolute;
+
+    top:50mm;
+    left:25mm;
+    right:25mm;
+    bottom:30mm;
+
+    display:flex;
+    flex-direction:column;
+}
+/* ==========================================================
+   HEADER
+   ========================================================== */
+
+.header-img{
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+}
+
+/* ==========================================================
+   CONTENT
+   ========================================================== */
+
+.date-row{
+
+    text-align:right;
+
+    margin-bottom:25px;
+
+    font-size:15px;
+
+}
+
+.document-text{
+
+    white-space:pre-wrap;
+
+    word-break:break-word;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+.document-title{
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    text-transform:uppercase;
+
+    margin-bottom:20px;
+
+    color:#222;
+
+}
+
+.signature-section{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-end;
+
+    margin-top:5px;
+
+}
+
+.left-signature,
+.right-signature{
+
+    width:40%;
+
+}
+
+.left-signature{
+
+    text-align:left;
+
+}
+
+.right-signature{
+
+    text-align:right;
+
+}
+
+/* Checkbox */
+
+.checkbox-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.checkbox-label input[type="checkbox"]{
+
+    width:18px;
+
+    height:18px;
+
+    margin:0;
+
+    cursor:pointer;
+
+    accent-color:var(--primary);
+
+}
+
+.checkbox-label span{
+
+    line-height:1;
+
+}
+
+.signature-img{
+
+    display:block;
+
+    width:170px;
+
+    height:auto;
+
+    margin-left:auto;      /* Push image to the right */
+
+    margin-bottom:8px;
+
+}
+
+.sign-name{
+
+    font-weight:bold;
+
+    font-size:16px;
+
+}
+
+.sign-designation{
+
+    margin-top:5px;
+
+    color:#555;
+
+    font-size:15px;
+
+}
+
+.previewName,
+.leftName{
+
+    display:block;
+
+    font-size:16px;
+
+    font-weight:700;
+
+}
+
+.previewDesignation,
+.leftDesignation{
+
+    display:block;
+
+    margin-top:4px;
+
+    font-size:15px;
+
+    color:#555;
+
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+
+.footer-img{
+
+    position:absolute;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media(max-width:1200px){
+
+    .container{
+
+        flex-direction:column;
+
+    }
+
+    .controls{
+
+        width:100%;
+        border-right:none;
+        border-bottom:1px solid var(--border);
+
+    }
+
+    .preview-area{
+
+        padding:20px;
+
+    }
+
+    .page{
+
+        width:100%;
+
+        min-height:auto;
+
+    }
+
+}
+
+/* ==========================================================
+   PRINT
+   ========================================================== */
+
+@page{
+    size:A4;
+    margin:0;
+}
+
+@media print{
+
+    body{
+
+        background:#fff;
+
+    }
+
+    .controls{
+        display:none;
+    }
+
+    .page{
+        margin:0;
+        box-shadow:none;
+    }
+
+    .preview-area{
+
+        padding:0;
+
+    }
+
+    .header-img{
+
+        width:100%;
+        display:block;
+
+    }
+
+    .footer-img{
+
+        width:100%;
+        display:block;
+
+        margin-top:auto;
+
+    }
+
+    .document-text{
+
+        white-space:pre-wrap;
+
+        word-break:break-word;
+
+    }
+
+    button{
+
+        display:none;
+
+    }
+
+}
+
+/* ==========================================================
+   PAGE BREAK HELPERS
+   ========================================================== */
+
+.page-break{
+
+    page-break-before:always;
+
+    break-before:page;
+
+}
+
+.no-break{
+
+    page-break-inside:avoid;
+
+    break-inside:avoid;
+
+}
+
+/* ======================================
+   RICH TEXT EDITOR
+====================================== */
+
+.toolbar{
+
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:6px;
+
+    padding:8px;
+
+    border:1px solid #d8dde4;
+    border-radius:6px;
+
+    background:#f7f9fb;
+
+    margin-bottom:12px;
+
+}
+
+.toolbar button{
+
+    width:34px;
+    height:34px;
+
+    padding:0;
+
+    border:1px solid #d0d5dc;
+
+    background:#fff;
+
+    color:#333;
+
+    border-radius:4px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+.toolbar button:not(.active):hover{
+
+    background:#eef4f8;
+
+}
+
+.toolbar button.active{
+
+    background:var(--primary);
+
+    color:#fff;
+
+    border-color:var(--primary);
+
+}
+
+.toolbar button:focus{
+
+    outline:2px solid #7aa7d9;
+    outline-offset:2px;
+
+}
+
+.toolbar select{
+
+    height:34px;
+
+    border:1px solid #d0d5dc;
+
+    border-radius:4px;
+
+    padding:0 8px;
+
+    background:#fff;
+
+}
+
+#fontFamily{
+
+    width:120px;
+
+}
+
+#fontSize{
+
+    width:58px;
+
+}
+
+.tool-group{
+
+    display:flex;
+    align-items:center;
+
+    gap:4px;
+
+}
+
+.divider{
+
+    width:1px;
+
+    height:26px;
+
+    background:#d7dde4;
+
+    margin:0 2px;
+
+}
+
+.toolbar input[type=color]{
+
+    width:34px;
+
+    height:34px;
+
+    border:1px solid #d0d5dc;
+
+    border-radius:4px;
+
+    padding:2px;
+
+    background:#fff;
+
+    cursor:pointer;
+
+}
+
+.editor{
+
+    min-height:450px;
+
+    background:#fff;
+
+    border:1px solid #ccc;
+
+    border-radius:6px;
+
+    padding:15px;
+
+    overflow:auto;
+
+    outline:none;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+.editor:empty:before{
+
+    content:"Type your document here...";
+
+    color:#999;
+
+}
+
+.document-text p {
+    margin: 0 0 12px 0;
+}
+
+.document-text ul,
+.document-text ol {
+    margin: 0 0 12px 0;
+    padding-left: 28px;
+}
+
+.document-text li {
+    margin-bottom: 6px;
+}
+
+/* ==========================================
+   WATERMARK
+========================================== */
+
+.watermark{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    pointer-events:none;
+
+    z-index:1;
+
+}
+
+.watermark img{
+
+    width:280px;
+
+    opacity:.05;
+
+}

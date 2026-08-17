@@ -1,0 +1,137 @@
+
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> -->
+
+
+<div id="invoice" class="invoice">
+
+<div class="invoice-content">
+    <div class="top-section">
+
+        <div class="logo-section">
+            <img src="logo.svg" class="company-logo" onerror="this.style.display='none'">
+            <div id="companyName"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="invoice-title">
+            INVOICE
+        </div>
+
+    </div>
+
+    <div class="info-section">
+
+    <div class="left-info">
+
+        <div class="address-box">
+            <h3>Bill To</h3>
+
+            <span id="pBillName"></span><br>
+
+            <div id="billVatRow">
+                <span id="pBillVAT"></span>
+            </div>
+
+            <span id="pBillAddress"></span><br>
+            <span id="pBillPhone"></span>
+        </div>
+
+        <div class="address-box">
+            <h3>Ship To</h3>
+
+            <span id="pShipName"></span><br>
+            <span id="pShipAddress"></span><br>
+            <span id="pShipPhone"></span>
+        </div>
+
+    </div>
+
+    <div class="right-info">
+
+        <div class="address-box">
+            <h3>Invoice Details</h3>
+
+            <p><strong>Invoice No:</strong> <span id="pInv"></span></p>
+            <p><strong>Invoice Date:</strong> <span id="pDate"></span></p>
+            <p><strong>Due Date:</strong> <span id="pDueDate"></span></p>
+            <div id="divHSN"> <p><strong>HSN No:</strong> <span id="spanHSN"></span></p> </div>
+        </div>
+
+        <div class="address-box">
+            <h3>Payment Information</h3>
+            <p><span id="bankPreview"></span></p>
+        </div>
+
+    </div>
+
+</div>
+
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th id="previewHeaderProduct">Product</th>
+                <th id="previewHeaderQty">Qty</th>
+                <th id="previewHeaderRate">Rate</th>
+                <th id="previewDiscountHeader">Discount</th>
+                <th id="previewHeaderTax">Tax</th>
+                <th id="previewHeaderAmount">Amount</th>
+            </tr>
+        </thead>
+        <tbody id="previewRows"></tbody>
+    </table>
+
+    <div class="summary-section">
+        <div class="total-section">
+
+            <div class="total-row">
+                <span>Subtotal</span>
+                <span class="amount-group">
+                    <span class="currency" id="currencyLabel1"></span>
+                    <span class="value" id="sub"></span>
+                </span>
+            </div>
+
+            <div class="total-row" id="discountRow">
+                <span>Discount</span>
+                <span class="amount-group">
+                    <span class="currency" id="currencyLabelDiscount"></span>
+                    <span class="value" id="discountTotal"></span>
+                </span>
+            </div>
+
+            <div class="total-row">
+                <span>VAT</span>
+                <span class="amount-group">
+                    <span class="currency" id="currencyLabel2"></span>
+                    <span class="value" id="vatAmt"></span>
+                </span>
+            </div>
+
+            <div class="grand-total">
+                <span>Grand Total</span>
+                <span class="amount-group">
+                    <span class="currency" id="currencyLabel3"></span>
+                    <span class="value" id="grand"></span>
+                </span>
+            </div>
+
+        </div>
+    </div>
+    <div class="amount-words">
+        <strong>Amount in Words : </strong>
+        <span id="amountWords"></span>
+    </div>
+
+    <div class="notes" id="notesSection">
+        <h3>Payment & Tax Notes</h3>
+        <div id="previewTerms"></div>
+    </div>
+
+    
+</div>
+    <div class="footer-text" id="footerText"></div>
+
+    <div class="footer">
+        <div id="companyFooter"></div>
+    </div>
+</div>

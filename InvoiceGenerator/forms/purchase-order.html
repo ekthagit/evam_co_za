@@ -1,0 +1,120 @@
+
+<div class="flex">
+
+    <!-- BILL TO -->
+
+    <div class="col">
+
+        <h3>Bill To</h3>
+
+        <input id="billName" placeholder="Customer / Company Name" required>
+        <input id="billVAT" placeholder="VAT Number (Optional)">
+        <textarea id="billAddress" placeholder="Billing Address" required></textarea>
+        <input id="billPhone" placeholder="Phone Number" required>
+    </div>
+
+    <!-- SHIP TO -->
+
+    <div class="col">
+
+        <h3>Ship To</h3>
+
+        <div class="checkbox-row">
+            <input type="checkbox" id="sameAsBilling">
+            <label for="sameAsBilling">Same as Bill To</label>
+        </div>
+
+        <input id="shipName" placeholder="Company Name" required>
+        <textarea id="shipAddress" placeholder="Shipping Address"></textarea>
+        <input id="shipPhone" placeholder="Phone Number">
+
+    </div>
+
+</div>
+
+<br>
+
+<div class="flex">
+
+    <!-- PO DETAILS -->
+
+    <div class="col">
+
+        <h3>Purchase Order Details</h3>
+
+        <label>Purchase Order No</label>
+        <input id="poNo">
+
+        <label>Purchase Order Date</label>
+        <input id="poDate" type="date">
+
+        <label>Delivery Terms</label>
+        <input id="poDeliveryTerm">
+
+        <label>Payment Terms</label>
+        <input id="poPaymentTerms">
+
+    </div>
+
+    <!-- Vendor INFO -->
+
+    <div class="col">
+
+        <h3>Vendor Information</h3>
+
+        <input id="vendorName" placeholder="Vendor Name" required>
+        <textarea id="vendorAddress" placeholder="Vendor Address"></textarea>
+        <input id="vendorPhone" placeholder="Vendor Phone Number">
+
+        <label>Currency</label>
+
+        <select id="currency">
+
+            <option value="AED">
+                AED
+            </option>
+
+            <option value="USD">
+                USD
+            </option>
+
+            <option value="INR">
+                INR
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+<div class="card">
+    <h3>Products</h3>
+    <div class="table-wrapper">
+        <table class="form-table">
+            <thead>
+                <tr>
+                    <th>Product</th><th>Qty</th><th>Rate</th><th>VAT %</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+        </table>
+    </div>
+    <br>
+    <button class="primary" onclick="addRow()">Add Product</button>
+</div>
+
+<div class="form-group">
+    <label><strong>Terms & Conditions</strong></label>
+
+    <div id="termsEditor" contenteditable="true" style=" min-height:150px; border:1px solid #ccc; padding:10px; border-radius:4px; background:#fff; ">
+        <ol>
+            <li>Consultancy services included in this invoice are charged and payable in full.</li>
+            <li>Product values reflected in this invoice represent only advance payment.</li>
+            <li>The remittance amount covers full consultancy fees and applicable advance payment.</li>
+            <li>All prices and amounts stated are inclusive of 5% VAT.</li>
+            <li>No additional charges, taxes, or VAT are payable beyond the invoiced amount.</li>
+        </ol>
+    </div>
+</div>
+

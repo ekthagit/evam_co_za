@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Document Generator</title>
+
+    <link rel="stylesheet" href="css/style1.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="card">
+
+        <h2>Document Generator</h2>
+
+        <div class="card">
+
+           <div class="top-controls">
+
+                <div class="document-selector">
+                    <label for="documentType"><strong>Document Type</strong></label>
+
+                    <div class="selector-row">
+                        <select id="documentType">
+                            <option value="invoice">Invoice</option>
+                            <option value="purchaseOrder">Purchase Order</option>
+                            <option value="businessDocument">Business Document</option>
+                        </select>
+
+                        <button
+                            type="button"
+                            class="secondary"
+                            onclick="showCurrencyWidget()">
+                            💱 Live Currency Rates
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="formContainer"></div>
+
+
+        <div class="card">
+
+            <button class="success" onclick="printDocument()">
+                Print Document
+            </button>
+
+        </div>
+    </div>
+
+        <!-- -------------------------------------- -->
+        <div class="card">
+
+            <div class="invoice-preview" id="invoiceCard">
+
+                <div id="invoiceContainer"></div>
+
+            </div>
+
+
+            <!-- <div class="card">
+
+                <h3>Invoice History</h3>
+
+                <div style="overflow:auto">
+                    <div class="table-wrapper">
+                        <table class="form-table">
+
+                            <thead>
+                                <tr>
+                                    <th>Invoice</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="historyBody"></tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+            </div> -->
+        </div>
+    </div>
+    <!-- -------------------------------------- -->
+
+    <div id="currencyModal" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="closeCurrencyWidget()">✕</button>
+
+        <iframe
+            id="xeFrame"
+            title="XE FX Widget"
+            frameborder="0">
+        </iframe>
+    </div>
+</div>
+    
+    <script src="js/constants.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/invoice.js"></script>
+    <script src="js/purchase-order.js"></script>
+</body>
+</html>
