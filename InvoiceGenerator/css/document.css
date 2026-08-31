@@ -560,7 +560,7 @@ button:hover{
    RICH TEXT EDITOR
 ====================================== */
 
-.toolbar{
+.toolbar1{
 
     display:flex;
     align-items:center;
@@ -578,7 +578,7 @@ button:hover{
 
 }
 
-.toolbar button{
+.toolbar1 button{
 
     width:34px;
     height:34px;
@@ -599,13 +599,13 @@ button:hover{
 
 }
 
-.toolbar button:not(.active):hover{
+.toolbar1 button:not(.active):hover{
 
     background:#eef4f8;
 
 }
 
-.toolbar button.active{
+.toolbar1 button.active{
 
     background:var(--primary);
 
@@ -615,14 +615,14 @@ button:hover{
 
 }
 
-.toolbar button:focus{
+.toolbar1 button:focus{
 
     outline:2px solid #7aa7d9;
     outline-offset:2px;
 
 }
 
-.toolbar select{
+.toolbar1 select{
 
     height:34px;
 
@@ -669,7 +669,7 @@ button:hover{
 
 }
 
-.toolbar input[type=color]{
+.toolbar1 input[type=color]{
 
     width:34px;
 
