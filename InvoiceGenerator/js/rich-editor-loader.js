@@ -10,7 +10,7 @@ async function loadRichEditor(containerId, editorId, initialContent = "") {
 
     try {
 
-        const response = await fetch("../components/rich-editor.html");
+        const response = await fetch("./components/rich-editor.html");
 
         if (!response.ok) {
             throw new Error("Unable to load rich editor.");
