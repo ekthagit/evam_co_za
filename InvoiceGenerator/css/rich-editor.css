@@ -1,0 +1,103 @@
+/* ==========================================================
+   REUSABLE RICH TEXT EDITOR
+   rich-editor.css
+========================================================== */
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px 8px;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background: #f5f5f5;
+    border-radius: 4px 4px 0 0;
+}
+
+.tool-group {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+.toolbar select {
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    background: #fff;
+    padding: 2px 6px;
+    font-size: 13px;
+}
+
+.font-family {
+    width: 145px;
+}
+
+.font-size {
+    width: 55px;
+}
+
+.toolbar button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.toolbar button:hover {
+    background: #e5e5e5;
+    border-color: #ccc;
+}
+
+.toolbar button.active {
+    background: #d8d8d8;
+    border-color: #aaa;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background: #ccc;
+    margin: 0 4px;
+}
+
+/* Color controls */
+
+.color-tool {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.color-tool:hover {
+    background: #e5e5e5;
+}
+
+.color-tool input[type="color"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.text-color-icon {
+    font-weight: bold;
+    border-bottom: 3px solid #000;
+    line-height: 20px;
+}
+
+.highlight-color-icon {
+    font-size: 16px;
+}
