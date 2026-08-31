@@ -8,15 +8,15 @@ function initializeInvoiceForm() {
     due.setDate(today.getDate() + 30);
     dueDate.value = due.toISOString().split("T")[0];
 
-    // loadRichEditor("invoiceTerms", "termsEditor", `
-    //     <ol>
-    //         <li>Consultancy services included in this invoice are charged and payable in full.</li>
-    //         <li>Product values reflected in this invoice represent only advance payment.</li>
-    //         <li>The remittance amount covers full consultancy fees and applicable advance payment.</li>
-    //         <li>All prices and amounts stated are inclusive of 5% VAT.</li>
-    //         <li>No additional charges, taxes, or VAT are payable beyond the invoiced amount.</li>
-    //     </ol>
-    // `);
+    loadRichEditor("invoiceTerms", "termsEditor", `
+        <ol>
+            <li>Consultancy services included in this invoice are charged and payable in full.</li>
+            <li>Product values reflected in this invoice represent only advance payment.</li>
+            <li>The remittance amount covers full consultancy fees and applicable advance payment.</li>
+            <li>All prices and amounts stated are inclusive of 5% VAT.</li>
+            <li>No additional charges, taxes, or VAT are payable beyond the invoiced amount.</li>
+        </ol>
+    `);
 
 }
 
